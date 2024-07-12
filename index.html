@@ -6,6 +6,102 @@
     <title>Meteo</title>
   </head>
   <body>
+   
+    <section >
+      <header>
+        <div class="recherche">
+
+            <input type="text" name="ville" id="ville">
+            <img  alt="rechercher" width="25px" height="25px" id="rechercher">
+
+        </div>
+      </header>
+
+
+      <div class="meteoContainer"> 
+        <h1 class="loc">
+        </h1>
+        <div class="today">
+            <div class="info">
+              <div class="information">
+                <h3>Maintenant</h3>
+                <h3 class="date"></h3>
+                <H3 class="heure"></H3>
+              </div>
+              
+            </div>
+            <div class="meteoInstant">
+              <div class="temperatureActuelle">
+                <div class="texte">
+                  <h3 id="temp"></h3>
+                  <h4 class="description"></h4>
+                </div>
+                <img width="70px" height="70px" id="imgInstant">
+              </div>
+
+              <div class="ressentie plusInfo">
+                <img alt="ressentieImg" width="50px" height="50px" id="ressentieImg">
+                <div class="text">
+                  <h4>Ressentie</h4>
+                  <h4 id="ressentieActu"></h4>
+                </div>
+              </div>
+
+              <div class="humdity plusInfo">
+                <img  alt="humdityImg" width="50px" height="50px" id="humdityImg">
+                <div class="text">
+                  <h4 >Humidité</h4>
+                  <h4 id="pourcHimid"></h4>
+                </div>
+              </div>
+
+              <div class="wind plusInfo">
+                <img  alt="windImg" width="50px" height="50px" id="windImg">
+                <div class="text">
+                  <h4>Vent</h4>
+                  <h4 id="windkmh"></h4>
+                </div>
+              </div>
+              
+
+              <div class="uv plusInfo">
+                <img alt="UVimg" width="50px" height="50px" id="UVimg">
+                <div class="text">
+                  <h4>Indice UV</h4>
+                  <h4 id="uv"></h4>
+                </div>
+              </div>
+
+              <div class="sunrise plusInfo">
+                <img alt="sunriseImg" width="50px" height="50px" id="sunriseImg">
+                <div class="text">
+                  <h4>Lever du soleil</h4>
+                  <h4 id="sunrisetime"></h4>
+                </div>
+              </div>
+
+              <div class="sunset plusInfo">
+                <img alt="sunsetImg" width="50px" height="50px" id="sunsetImg">
+                <div class="text">
+                  <h4>Coucher du soleil</h4>
+                  <h4 id="sunsettime"></h4>
+                </div>
+              </div>
+            </div>
+            <div class="heureActu">
+              <h4 class="actuA">Derrière actualisation : </h4>
+            </div>
+        </div>
+
+
+        <div class="avenir">
+            <div class="card">
+
+            </div>
+        </div>
+      </div>
+      
+    </section>
     <script src="./bundle.js"></script>
   </body>
 </html>
