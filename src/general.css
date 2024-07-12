@@ -1,0 +1,116 @@
+*,::after,::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+section{
+    height: 100vh;  
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.jour{
+    background-image: url(./assets/jour.jpg);
+}
+
+.debutJ{
+    background-image: url(./assets/debutJ.jpg);
+}
+.finJ{
+    background-image: url(./assets/finJ.jpg);
+}
+.nuit{
+    background-image: url(./assets/nuit.jpg);
+}
+
+header{
+    background-color: #ffffffa8;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+input[type="text"]{
+    width: 300px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 3px;
+    border: 1px solid white;
+    background-color: #ffffffa8;
+
+    font-size: 1.2em;
+
+}
+img{
+    cursor: pointer;
+}
+img:hover{
+    box-shadow: 0px 0px 10px white;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.meteoContainer{
+    width: 100vw;
+    height: 90vh;
+    padding: 10px;
+    background-color: #000000a8;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.today{
+    width: 45vw;
+    height: auto;
+    background-color: #ffffffa8;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 5px;
+    color: black;
+}
+.temperatureActuelle{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row-reverse;
+    margin-left:10px;
+}
+
+.meteoInstant{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.plusInfo{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+.text{
+    margin-left: 5px;
+    text-align: start;
+}
+.heureActu{
+    display: flex;
+    justify-content: end;
+}
