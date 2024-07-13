@@ -86,6 +86,7 @@ img:hover{
     border: 1px solid white;
     padding: 5px;
     color: black;
+    border-radius: 20px;
 }
 .temperatureActuelle{
     display: flex;
@@ -113,4 +114,48 @@ img:hover{
 .heureActu{
     display: flex;
     justify-content: end;
+}
+.Container{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.avenir{
+    width: 45vw;
+    border: 1px solid white;
+    background-color: #ffffffa8;
+    color: black;
+    border-radius: 20px;
+}
+
+.displaycard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.card{
+    border: 1px solid white;
+    width: 300px;
+    height: 250px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px 2px 20px 1px;
+    background-color: rgb(142, 184, 167);
+    font-size: 1.1rem;
+
+}
+
+.infoDisplay{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.infoDisplay>h4{
+    margin-left: 3px;
+}
+.infoDisplay:last-child>h4{
+    margin-top: 20px;
 }
