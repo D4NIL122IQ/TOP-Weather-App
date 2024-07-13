@@ -2,10 +2,11 @@ import './general.css'
 import imgFind from './assets/find.png'
 import imgHumidity from './assets/humidity.png'
 import UV from './assets/uv.png'
-import ressentieImg from './assets/ressentie.png'
+import  minmaxImg from './assets/minmax.png'
 import windImg from './assets/vent.png'
 import sunriseImg from './assets/sunrise.png'
 import sunsetImg from './assets/sunset.png'
+import ressentieImg from './assets/ressentie.png'
 
 const section = document.querySelector('section')
 const title = document.querySelector('.loc')
@@ -22,6 +23,10 @@ const ventActu = document.querySelector('#windkmh')
 const actue = document.querySelector('.actuA')
 const sunsetTime = document.querySelector('#sunsettime')
 const sunriseTime = document.querySelector('#sunrisetime')
+const minmaxTexte = document.querySelector('.minmaxTemp')
+
+const CardContainer = document.querySelector('.displayCard')
+
 
 document.querySelector('#rechercher').src = imgFind
 document.querySelector('#humdityImg').src = imgHumidity
@@ -30,6 +35,7 @@ document.querySelector('#UVimg').src = UV
 document.querySelector('#windImg').src = windImg
 document.querySelector('#sunriseImg').src = sunriseImg
 document.querySelector('#sunsetImg').src = sunsetImg
+document.querySelector('#minmaxImg').src = minmaxImg
 
 let heureactuel = new Date().getHours()
 
@@ -49,11 +55,11 @@ if (navigator.geolocation) {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
         getTempInstant(String(latitude) +','+String(longitude))
-        getSunTime(String(latitude) +','+String(longitude))
+
       },
       function(error) {
         getTempInstant('bejaia')
-        getSunTime('bejaia')
+
       }
     );
   } else {
@@ -61,9 +67,9 @@ if (navigator.geolocation) {
 }
   
 async function getTempInstant(villeName){
-    let URLgetTodayMeteo = 'https://api.weatherapi.com/v1/current.json?key=14195a369dfb44a8bc803821240707&lang=fr&q='
-    URLgetTodayMeteo += villeName
+    let URLgetTodayMeteo = `https://api.weatherapi.com/v1/current.json?key=14195a369dfb44a8bc803821240707&lang=fr&q=${villeName}`
 
+    
     const rep = await fetch(URLgetTodayMeteo)
 
     rep.json().then(function(rep){
@@ -81,6 +87,8 @@ async function getTempInstant(villeName){
         ventActu.textContent = rep.current.wind_kph + ' Km/h'
         uvActu.textContent = rep.current.uv
     })
+    getSunTime(villeName)
+    getMinMaxTempToday(villeName)
 }
 
 async function getSunTime(villeName) {
@@ -92,11 +100,26 @@ async function getSunTime(villeName) {
         sunriseTime.textContent = rep.astronomy.astro.sunrise
         sunsetTime.textContent = rep.astronomy.astro.sunset
     })
+
+async function getMinMaxTempToday(villeName){
+    let URLforcast = `https://api.weatherapi.com/v1/forecast.json?key=14195a369dfb44a8bc803821240707&q=${villeName}&day=1`
+    const rep = await fetch (URLforcast)
+
+    rep.json().then(function(rep){
+        minmaxTexte.textContent = rep.forecast.forecastday[0].day.mintemp_c + '°C - ' + rep.forecast.forecastday[0].day.maxtemp_c + '°C'
+    })
+}
+
+async function getTempFor4Days (villeName){
+    let URL = `https://api.weatherapi.com/v1/forecast.json?key=14195a369dfb44a8bc803821240707&lang=fr&q=${villeName}&day=4`
+
+    const rep = await fetch(URL)
+    rep.json().then()
 }
 
 document.querySelector("img").addEventListener('click' , ()=>{
     getTempInstant(document.querySelector('#ville').value)
-    getSunTime(document.querySelector('#ville').value)
+
    
 })
 
