@@ -100,7 +100,7 @@ async function getSunTime(villeName) {
         sunriseTime.textContent = rep.astronomy.astro.sunrise
         sunsetTime.textContent = rep.astronomy.astro.sunset
     })
-
+}
 async function getMinMaxTempToday(villeName){
     let URLforcast = `https://api.weatherapi.com/v1/forecast.json?key=14195a369dfb44a8bc803821240707&q=${villeName}&day=1`
     const rep = await fetch (URLforcast)
